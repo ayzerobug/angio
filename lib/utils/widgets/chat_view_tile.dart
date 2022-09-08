@@ -45,6 +45,7 @@ class ChatViewTile extends StatelessWidget {
           isOnline: isOnline,
           backgroundColor: avatarColor,
           gradient: avatarGradient,
+          radius: 50,
         ),
         const SizedBox(
           width: 10,
@@ -71,7 +72,7 @@ class ChatViewTile extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Color.fromARGB(255, 190, 190, 191),
+                      color: Colors.blueGrey,
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                     ),
@@ -112,9 +113,11 @@ class ChatViewTile extends StatelessWidget {
                             ? Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  const Iconify(
+                                  Iconify(
                                     Ph.microphone,
-                                    color: Color(0xff536ba1),
+                                    color: unreadCount > 0
+                                        ? const Color(0xff2a3645)
+                                        : Colors.grey,
                                     size: 18,
                                   ),
                                   const SizedBox(
@@ -125,7 +128,9 @@ class ChatViewTile extends StatelessWidget {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      color: const Color(0xff536ba1),
+                                      color: unreadCount > 0
+                                          ? const Color(0xff2a3645)
+                                          : Colors.grey,
                                       fontWeight: unreadCount > 0
                                           ? FontWeight.bold
                                           : FontWeight.w400,
@@ -141,17 +146,16 @@ class ChatViewTile extends StatelessWidget {
                                 style: TextStyle(
                                   color: unreadCount > 0
                                       ? const Color(0xff2a3645)
-                                      : const Color.fromARGB(
-                                          255, 173, 174, 174),
+                                      : Colors.grey,
                                   fontWeight: unreadCount > 0
                                       ? FontWeight.bold
-                                      : FontWeight.w400,
+                                      : FontWeight.w500,
                                 ),
                               ),
                   ),
                   if (unreadCount > 0)
                     Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(7),
                       decoration: const BoxDecoration(
                         color: Color(0xfff13d3e),
                         shape: BoxShape.circle,

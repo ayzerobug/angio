@@ -36,14 +36,14 @@ class UserAvatar extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: backgroundColor,
-              boxShadow: [
-                BoxShadow(
-                  color: shadowColor,
-                  offset: const Offset(0, 20),
-                  blurRadius: 30,
-                  spreadRadius: -7,
-                ),
-              ],
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: shadowColor,
+              //     offset: const Offset(0, 20),
+              //     blurRadius: 30,
+              //     spreadRadius: -10,
+              //   ),
+              // ],
               gradient: gradient,
             ),
             child: ClipOval(
