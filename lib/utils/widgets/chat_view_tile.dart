@@ -149,7 +149,7 @@ class ChatViewTile extends StatelessWidget {
                                       : Colors.grey,
                                   fontWeight: unreadCount > 0
                                       ? FontWeight.bold
-                                      : FontWeight.w500,
+                                      : FontWeight.w400,
                                 ),
                               ),
                   ),
