@@ -1,18 +1,12 @@
 import 'package:angio/utils/widgets/app_layout.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ci.dart';
-import 'package:iconify_flutter/icons/clarity.dart';
 import 'package:iconify_flutter/icons/eva.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/ic.dart';
-import 'package:iconify_flutter/icons/iconoir.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
-import 'package:iconify_flutter/icons/tabler.dart';
-import 'package:iconify_flutter/icons/uil.dart';
 
 class CallScreen extends StatefulWidget {
   const CallScreen({Key? key}) : super(key: key);
@@ -100,7 +94,7 @@ class _CallScreenState extends State<CallScreen> {
             ),
             child: const Iconify(
               Fluent.call_24_filled,
-              color: const Color.fromARGB(255, 225, 238, 244),
+              color: Color.fromARGB(255, 225, 238, 244),
               size: 30,
             ),
           ),

@@ -21,7 +21,7 @@ class FeedAction extends StatelessWidget {
           ),
           Text(
             caption,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,
             ),

@@ -1,15 +1,8 @@
 import 'dart:math';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/iconify_flutter.dart';
-import 'package:iconify_flutter/icons/bi.dart';
-import 'package:iconify_flutter/icons/ei.dart';
-import 'package:iconify_flutter/icons/fluent.dart';
-import 'package:iconify_flutter/icons/ph.dart';
 
 import '../../utils/colors.dart';
-import '../../utils/widgets/feed_action.dart';
 import '../../utils/widgets/feed_view.dart';
 import '../../utils/widgets/stories_preview.dart';
 
