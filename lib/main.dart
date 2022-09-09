@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/users/app.dart';
+import 'screens/users/call.dart';
 import 'utils/colors.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         primarySwatch: Colors.blue,
       ),
-      home: App(),
+      home: const CallScreen(),
     );
   }
 }
