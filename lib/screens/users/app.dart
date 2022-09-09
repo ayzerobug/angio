@@ -1,3 +1,4 @@
+import 'package:angio/screens/users/feeds.dart';
 import 'package:angio/utils/widgets/app_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -15,27 +16,51 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  List<List> bodyWidgets = [
+    [
+      const ChatListScreen(),
+      const EdgeInsets.fromLTRB(20, 20, 20, 3),
+    ],
+    [
+      const FeedScreen(),
+      const EdgeInsets.fromLTRB(10, 20, 10, 3),
+    ],
+  ];
+  List<String> navIcons = const [
+    Ph.chat_circle_dots,
+    Ic.twotone_timeline,
+    Fluent.call_32_regular,
+    Octicon.settings_24,
+  ];
+  int selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
     return AppLayout(
-      body: const ChatListScreen(),
+      body: bodyWidgets[selectedIndex][0],
       footer: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 40,
+          horizontal: 20,
         ),
         child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              _NavIcon(
-                Ph.chat_circle_dots,
-                selected: true,
-              ),
-              _NavIcon(Ic.twotone_timeline),
-              _NavIcon(Fluent.call_32_regular),
-              _NavIcon(Octicon.settings_24),
-            ]),
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: navIcons
+              .map(
+                (e) => InkWell(
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = navIcons.indexOf(e);
+                    });
+                  },
+                  child: _NavIcon(
+                    e,
+                    selected: selectedIndex == navIcons.indexOf(e),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
       ),
-      bodyPadding: const EdgeInsets.fromLTRB(20, 20, 20, 3),
+      bodyPadding: bodyWidgets[selectedIndex][1],
     );
   }
 }
@@ -48,28 +73,17 @@ class _NavIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print(icon);
-      },
-      child: selected
-          ? Container(
-              padding: const EdgeInsets.all(10),
-              decoration: const BoxDecoration(
-                color: Color(0xff1f56cb),
-                shape: BoxShape.circle,
-              ),
-              child: Iconify(
-                icon,
-                color: const Color.fromARGB(255, 225, 238, 244),
-                size: 30,
-              ),
-            )
-          : Iconify(
-              icon,
-              color: const Color.fromARGB(255, 225, 238, 244),
-              size: 30,
-            ),
+    return Container(
+      padding: selected ? const EdgeInsets.all(10) : EdgeInsets.zero,
+      decoration: BoxDecoration(
+        color: selected ? const Color(0xff1f56cb) : Colors.transparent,
+        shape: BoxShape.circle,
+      ),
+      child: Iconify(
+        icon,
+        color: const Color.fromARGB(255, 225, 238, 244),
+        size: 30,
+      ),
     );
   }
 }

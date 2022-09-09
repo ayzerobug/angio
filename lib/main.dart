@@ -1,7 +1,7 @@
+import 'package:angio/screens/users/color_finder.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/users/app.dart';
-import 'screens/users/call.dart';
 import 'utils/colors.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: scaffoldBackgroundColor,
         primarySwatch: Colors.blue,
       ),
-      home: const CallScreen(),
+      home: const App(),
     );
   }
 }
