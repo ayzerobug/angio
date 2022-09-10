@@ -7,7 +7,7 @@ class User {
   User({
     required this.username,
     required this.name,
-    required this.isVerified,
+    this.isVerified = false,
     required this.avatarUrl,
   });
 }
