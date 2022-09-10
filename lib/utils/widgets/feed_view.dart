@@ -6,7 +6,7 @@ import 'package:iconify_flutter/icons/ei.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 
-import '../Models/Feed.dart';
+import '../Models/feed.dart';
 import '../methods/formatter.dart';
 import 'feed_action.dart';
 

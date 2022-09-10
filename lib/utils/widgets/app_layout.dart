@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppLayout extends StatelessWidget {
-  const AppLayout({Key? key, required this.body, this.footer, this.bodyPadding})
+  const AppLayout(
+      {Key? key,
+      required this.body,
+      this.footer,
+      this.bodyPadding,
+      this.header})
       : super(key: key);
   final Widget body;
   final Widget? footer;
+  final Widget? header;
   final EdgeInsetsGeometry? bodyPadding;
 
   @override
@@ -16,6 +22,7 @@ class AppLayout extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (header != null) header!,
               Expanded(
                 child: Container(
                   padding: bodyPadding ??
@@ -27,9 +34,7 @@ class AppLayout extends StatelessWidget {
                   child: body,
                 ),
               ),
-              footer != null
-                  ? SizedBox(height: 100, child: footer)
-                  : Container()
+              if (footer != null) SizedBox(height: 100, child: footer)
             ],
           ),
         ),

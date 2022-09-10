@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:angio/utils/widgets/app_divider.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/Models/Feed.dart';
-import '../../utils/Models/User.dart';
+import '../../utils/Models/feed.dart';
+import '../../utils/Models/user.dart';
 import '../../utils/colors.dart';
 import '../../utils/widgets/feed_view.dart';
 import '../../utils/widgets/stories_preview.dart';
