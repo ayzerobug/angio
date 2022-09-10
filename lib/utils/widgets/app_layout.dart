@@ -5,13 +5,13 @@ class AppLayout extends StatelessWidget {
       {Key? key,
       required this.body,
       this.footer,
-      this.bodyPadding,
+      required this.bodyPadding,
       this.header})
       : super(key: key);
   final Widget body;
   final Widget? footer;
   final Widget? header;
-  final EdgeInsetsGeometry? bodyPadding;
+  final EdgeInsetsGeometry bodyPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,7 @@ class AppLayout extends StatelessWidget {
               if (header != null) header!,
               Expanded(
                 child: Container(
-                  padding: bodyPadding ??
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  padding: bodyPadding,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
@@ -34,7 +33,7 @@ class AppLayout extends StatelessWidget {
                   child: body,
                 ),
               ),
-              if (footer != null) SizedBox(height: 100, child: footer)
+              if (footer != null) footer!
             ],
           ),
         ),

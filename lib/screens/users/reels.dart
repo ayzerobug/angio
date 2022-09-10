@@ -5,7 +5,8 @@ import 'package:iconify_flutter/icons/ci.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 
 class ReelsScreen extends StatefulWidget {
-  const ReelsScreen({Key? key}) : super(key: key);
+  const ReelsScreen({Key? key, this.following = false}) : super(key: key);
+  final bool following;
 
   @override
   State<ReelsScreen> createState() => _ReelsScreenState();

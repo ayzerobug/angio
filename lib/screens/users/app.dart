@@ -28,10 +28,21 @@ class _AppState extends State<App> {
       bodyPadding: const EdgeInsets.fromLTRB(10, 20, 10, 3),
     ),
     AppScreen(
-      body: const ReelsScreen(),
-      tabLength: 2,
-      bodyPadding: const EdgeInsets.fromLTRB(10, 20, 10, 3),
-    ),
+        body: const TabBarView(children: [
+          ReelsScreen(following: true),
+          ReelsScreen(),
+        ]),
+        tabLength: 2,
+        bodyPadding: EdgeInsets.zero,
+        header: const Padding(
+          padding: EdgeInsets.all(10),
+          child: TabBar(
+            tabs: <Tab>[
+              Tab(text: 'Following'),
+              Tab(text: 'Explore'),
+            ],
+          ),
+        )),
   ];
   List<String> navIcons = const [
     Ph.chat_circle_dots,
@@ -48,9 +59,7 @@ class _AppState extends State<App> {
         header: bodyWidgets[selectedIndex].header,
         body: bodyWidgets[selectedIndex].body,
         footer: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: navIcons
