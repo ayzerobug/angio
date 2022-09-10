@@ -4,6 +4,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/bi.dart';
 import 'package:iconify_flutter/icons/ei.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
+import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 
 import '../Models/feed.dart';
@@ -31,7 +32,7 @@ class FeedView extends StatelessWidget {
             width: 40,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: CachedNetworkImageProvider(feed.user.avatarUrl),
+                image: CachedNetworkImageProvider(feed.author.avatarUrl),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(40 * 0.3),
@@ -51,19 +52,32 @@ class FeedView extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            feed.user.name,
+                            feed.author.name,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          if (feed.author.isVerified)
+                            Column(
+                              children: const [
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Iconify(
+                                  Ic.baseline_verified,
+                                  size: 14,
+                                  color: Colors.blue,
+                                ),
+                              ],
+                            ),
                           const SizedBox(
                             width: 5,
                           ),
                           Expanded(
                             child: Text(
-                              "@${feed.user.username}",
+                              "@${feed.author.username}",
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(

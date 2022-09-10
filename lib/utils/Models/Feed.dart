@@ -1,7 +1,7 @@
-import 'user.dart';
+import 'package:angio/utils/models/user.dart';
 
 class Feed {
-  final User user;
+  final User author;
   final String? caption;
   final String? imageUrl;
   final int likes;
@@ -9,7 +9,7 @@ class Feed {
   final int createdAt;
 
   Feed({
-    required this.user,
+    required this.author,
     this.caption,
     this.imageUrl,
     required this.likes,

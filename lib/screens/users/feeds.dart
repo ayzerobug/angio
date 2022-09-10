@@ -4,8 +4,8 @@ import 'package:angio/utils/widgets/app_divider.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/Models/feed.dart';
-import '../../utils/Models/user.dart';
 import '../../utils/colors.dart';
+import '../../utils/models/user.dart';
 import '../../utils/widgets/feed_view.dart';
 import '../../utils/widgets/stories_preview.dart';
 
@@ -20,7 +20,7 @@ class _FeedScreenState extends State<FeedScreen> {
   final Random random = Random();
   List<Feed> feeds = [
     Feed(
-      user: User(
+      author: User(
           username: "ivan",
           name: "Ivan Brennan",
           avatarUrl:
@@ -32,20 +32,20 @@ class _FeedScreenState extends State<FeedScreen> {
       createdAt: 1662799599,
     ),
     Feed(
-      user: User(
+      author: User(
           username: "ayzerobug",
           name: "Ayomide Micheal",
           avatarUrl: "https://avatars.githubusercontent.com/u/68833108?v=4",
           isVerified: true),
       caption: "Oh deer, look what i spotted today",
       imageUrl:
-          "https://upload.wikimedia.org/wikipedia/commons/4/45/Eopsaltria_australis_-_Mogo_Campground.jpg",
+          "https://preview.redd.it/e7aokt8k4zy61.jpg?auto=webp&s=ab6f6f68e68e58888bedc421ce8c994176fe7f45",
       likes: 49,
       comments: 11,
       createdAt: 1662799400,
     ),
     Feed(
-      user: User(
+      author: User(
         username: "pinsky",
         name: "Pinsky.eth",
         avatarUrl:
