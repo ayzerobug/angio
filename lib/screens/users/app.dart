@@ -20,37 +20,38 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   List<AppScreen> bodyWidgets = [
     AppScreen(
-      body: const ChatListScreen(),
-      bodyPadding: const EdgeInsets.fromLTRB(20, 20, 20, 3),
-    ),
-    AppScreen(
       body: const FeedScreen(),
       bodyPadding: const EdgeInsets.fromLTRB(10, 20, 10, 3),
     ),
     AppScreen(
-        body: const TabBarView(children: [
-          ReelsScreen(following: true),
-          ReelsScreen(),
-        ]),
-        tabLength: 2,
-        bodyPadding: EdgeInsets.zero,
-        header: const Padding(
-          padding: EdgeInsets.all(10),
-          child: TabBar(
-            tabs: <Tab>[
-              Tab(text: 'Following'),
-              Tab(text: 'Explore'),
-            ],
-          ),
-        )),
+      body: const TabBarView(children: [
+        ReelsScreen(following: true),
+        ReelsScreen(),
+      ]),
+      tabLength: 2,
+      bodyPadding: EdgeInsets.zero,
+      header: const Padding(
+        padding: EdgeInsets.all(10),
+        child: TabBar(
+          tabs: <Tab>[
+            Tab(text: 'Following'),
+            Tab(text: 'Explore'),
+          ],
+        ),
+      ),
+    ),
+    AppScreen(
+      body: const ChatListScreen(),
+      bodyPadding: const EdgeInsets.fromLTRB(20, 20, 20, 3),
+    ),
   ];
   List<String> navIcons = const [
-    Ph.chat_circle_dots,
-    Ic.twotone_timeline,
+    Fluent.home_28_filled,
     Fluent.chat_video_20_regular,
+    Ph.chat_circle_dots,
     Octicon.settings_24,
   ];
-  int selectedIndex = 2;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

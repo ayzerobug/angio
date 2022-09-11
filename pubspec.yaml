@@ -44,6 +44,7 @@ dependencies:
   preload_page_view: ^0.1.6
   focus_detector: ^2.0.1
   cached_video_player: ^2.0.3
+  fijkplayer: ^0.10.1
 
 dev_dependencies:
   flutter_test:

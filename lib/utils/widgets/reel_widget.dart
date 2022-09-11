@@ -21,8 +21,6 @@ class ReelWidget extends StatefulWidget {
 class _ReelWidgetState extends State<ReelWidget> {
   late CachedVideoPlayerController videoController;
 
-  
-
   @override
   void initState() {
     print("Page Created");
@@ -36,10 +34,19 @@ class _ReelWidgetState extends State<ReelWidget> {
   }
 
   @override
+  void dispose() {
+    if (videoController.value.isPlaying) videoController.pause();
+    // videoController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FocusDetector(
       onVisibilityGained: () {
-        videoController.play();
+        if (videoController.value.isInitialized) {
+          videoController.play();
+        }
       },
       onVisibilityLost: () {
         videoController.pause();

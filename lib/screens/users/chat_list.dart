@@ -83,6 +83,26 @@ class UserChatsList extends StatelessWidget {
         ),
         const AppDivider(),
         const ChatViewTile(
+          displayName: "John Alex",
+          time: "9:32 AM",
+          isOnline: true,
+          message: "Hey Ay... Whats'up are you coming around today?",
+          avatarColor: null,
+          avatarGradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 143, 214, 252),
+              Color.fromARGB(255, 100, 221, 254),
+              Color.fromARGB(255, 34, 152, 255),
+              Color.fromARGB(255, 19, 129, 255),
+            ],
+            stops: [0.1, 0.3, 0.9, 1.0],
+          ),
+          unreadCount: 1,
+        ),
+        const AppDivider(),
+        const ChatViewTile(
           imageUrl: "https://randomuser.me/api/portraits/women/85.jpg",
           displayName: "Rosemary Richardson",
           time: "9:32 AM",

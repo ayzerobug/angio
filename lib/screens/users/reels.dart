@@ -79,7 +79,6 @@ class _ReelsScreenState extends State<ReelsScreen> {
     return PreloadPageView(
       preloadPagesCount: 10,
       scrollDirection: Axis.vertical,
-     
       children: reels
           .map((e) => ReelWidget(
                 reel: e,

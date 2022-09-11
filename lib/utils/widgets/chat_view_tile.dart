@@ -152,19 +152,26 @@ class ChatViewTile extends StatelessWidget {
                               ),
                   ),
                   if (unreadCount > 0)
-                    Container(
-                      padding: const EdgeInsets.all(7),
-                      decoration: const BoxDecoration(
-                        color: Color(0xfff13d3e),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Text(
-                        unreadCount.toString(),
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 10,
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 5,
                         ),
-                      ),
+                        Container(
+                          padding: const EdgeInsets.all(7),
+                          decoration: const BoxDecoration(
+                            color: Color(0xfff13d3e),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Text(
+                            unreadCount.toString(),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ),
+                      ],
                     )
                 ],
               )
