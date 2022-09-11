@@ -75,7 +75,7 @@ class _FeedScreenState extends State<FeedScreen> {
             itemBuilder: ((context, index) => FeedView(
                   feed: feeds[index],
                 )),
-            separatorBuilder: ((context, index) => AppDivider()),
+            separatorBuilder: ((context, index) => const AppDivider()),
           ),
         ),
       )

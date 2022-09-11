@@ -1,20 +1,20 @@
+import 'package:cached_video_player/cached_video_player.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 class VideoApp extends StatefulWidget {
   const VideoApp({Key? key}) : super(key: key);
 
   @override
-  _VideoAppState createState() => _VideoAppState();
+  VideoAppState createState() => VideoAppState();
 }
 
-class _VideoAppState extends State<VideoApp> {
-  late VideoPlayerController _controller;
+class VideoAppState extends State<VideoApp> {
+  late CachedVideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
+    _controller = CachedVideoPlayerController.network(
         'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
@@ -31,7 +31,7 @@ class _VideoAppState extends State<VideoApp> {
           child: _controller.value.isInitialized
               ? AspectRatio(
                   aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
+                  child: CachedVideoPlayer(_controller),
                 )
               : Container(),
         ),
