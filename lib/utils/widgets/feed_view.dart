@@ -91,12 +91,16 @@ class FeedView extends StatelessWidget {
                             Bi.dot,
                             color: Color.fromARGB(255, 116, 115, 115),
                           ),
-                          Text(
-                            getVerboseDateTimeRepresentation(feed.createdAt),
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 116, 115, 115),
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                          Expanded(
+                            child: Text(
+                              getVerboseDateTimeRepresentation(feed.createdAt),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 116, 115, 115),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ],
