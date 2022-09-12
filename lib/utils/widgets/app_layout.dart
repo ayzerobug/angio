@@ -1,43 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter/icons/wi.dart';
+
+import '../Models/app_screns.dart';
 
 class AppLayout extends StatelessWidget {
   const AppLayout(
-      {Key? key,
-      required this.body,
-      this.footer,
-      required this.bodyPadding,
-      this.header})
+      {Key? key, required this.theme, this.footer = const SizedBox()})
       : super(key: key);
-  final Widget body;
-  final Widget? footer;
-  final Widget? header;
-  final EdgeInsetsGeometry bodyPadding;
+  final AppLayoutTheme theme;
+  final Widget footer;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (header != null) header!,
-              Expanded(
-                child: Container(
-                  padding: bodyPadding,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: body,
-                ),
+    final Widget child = Padding(
+      padding: theme.appMargin,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (theme.header != null) theme.header!,
+          Expanded(
+            child: Container(
+              padding: theme.bodyPadding,
+              decoration: BoxDecoration(
+                color: theme.bodyColor,
+                borderRadius: theme.borderRadius,
               ),
-              if (footer != null) footer!
-            ],
+              child: theme.body,
+            ),
           ),
-        ),
+          theme.footer ?? footer
+        ],
       ),
+    );
+    return Scaffold(
+      body: theme.safeWrap ? SafeArea(child: child) : child,
     );
   }
 }

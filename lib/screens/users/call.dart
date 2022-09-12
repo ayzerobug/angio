@@ -8,6 +8,8 @@ import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
+import '../../utils/Models/app_screns.dart';
+
 class CallScreen extends StatefulWidget {
   const CallScreen({Key? key}) : super(key: key);
 
@@ -19,66 +21,71 @@ class _CallScreenState extends State<CallScreen> {
   @override
   Widget build(BuildContext context) {
     return AppLayout(
-      body: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: CachedNetworkImageProvider(
-                    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHJhbmRvbSUyMHBlb3BsZXxlbnwwfHwwfHw%3D&w=1000&q=80"),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-          ),
-          Positioned(
-            bottom: 15,
-            right: 15,
-            child: Container(
-              height: 150,
-              width: 110,
+      theme: AppLayoutTheme(
+        body: Stack(
+          children: [
+            Container(
               decoration: BoxDecoration(
                 image: const DecorationImage(
                   image: CachedNetworkImageProvider(
-                      "https://images.unsplash.com/photo-1602693130669-9c9e53cc320c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d29tYW4lMjBzbWlsaW5nfGVufDB8fDB8fA%3D%3D&w=1000&q=80"),
+                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHJhbmRvbSUyMHBlb3BsZXxlbnwwfHwwfHw%3D&w=1000&q=80"),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(30),
-                border: Border.all(
-                  color: const Color.fromARGB(159, 255, 255, 255),
-                  width: 2,
+              ),
+            ),
+            Positioned(
+              bottom: 15,
+              right: 15,
+              child: Container(
+                height: 150,
+                width: 110,
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: CachedNetworkImageProvider(
+                        "https://images.unsplash.com/photo-1602693130669-9c9e53cc320c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d29tYW4lMjBzbWlsaW5nfGVufDB8fDB8fA%3D%3D&w=1000&q=80"),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    color: const Color.fromARGB(159, 255, 255, 255),
+                    width: 2,
+                  ),
                 ),
               ),
             ),
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            const BackButton(
-              color: Colors.white,
-            ),
-            Row(
-              children: const [
-                Iconify(
-                  Ic.outline_lock,
-                  color: Colors.white,
-                  size: 16,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  "End-to-end encryption",
-                  style: TextStyle(
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              const BackButton(
+                color: Colors.white,
+              ),
+              Row(
+                children: const [
+                  Iconify(
+                    Ic.outline_lock,
                     color: Colors.white,
+                    size: 16,
                   ),
-                )
-              ],
-            ),
-            const Iconify(
-              Ci.user_plus,
-              color: Colors.white,
-            )
-          ]),
-        ],
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "End-to-end encryption",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
+              const Iconify(
+                Ci.user_plus,
+                color: Colors.white,
+              )
+            ]),
+          ],
+        ),
+        bodyPadding: EdgeInsets.zero,
+        borderRadius: BorderRadius.circular(30),
+        bodyColor: Colors.white,
       ),
       footer: Padding(
         padding: const EdgeInsets.symmetric(
@@ -101,7 +108,6 @@ class _CallScreenState extends State<CallScreen> {
           const _NavIcon(Mdi.microphone_outline),
         ]),
       ),
-      bodyPadding: EdgeInsets.zero,
     );
   }
 }

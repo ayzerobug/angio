@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
-class AppScreen {
+class AppLayoutTheme {
   final Widget? header;
   final Widget body;
   final Widget? footer;
   final EdgeInsetsGeometry bodyPadding;
-  final int tabLength;
+  final EdgeInsetsGeometry appMargin;
+  final BorderRadiusGeometry borderRadius;
+  final Color bodyColor;
+  final bool safeWrap;
 
-  AppScreen({
+  AppLayoutTheme({
     this.header,
     required this.body,
     this.footer,
-    this.tabLength = 1,
+    this.bodyColor = Colors.white,
+    this.borderRadius = const BorderRadius.all(Radius.circular(30)),
+    this.appMargin = const EdgeInsets.all(5),
     this.bodyPadding = EdgeInsets.zero,
+    this.safeWrap = true,
   });
 }

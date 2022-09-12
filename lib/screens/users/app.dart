@@ -5,7 +5,6 @@ import 'package:angio/utils/widgets/app_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
-import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/octicon.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 import 'chat_list.dart';
@@ -18,29 +17,20 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List<AppScreen> bodyWidgets = [
-    AppScreen(
+  List<AppLayoutTheme> bodyWidgets = [
+    AppLayoutTheme(
       body: const FeedScreen(),
       bodyPadding: const EdgeInsets.fromLTRB(10, 20, 10, 3),
     ),
-    AppScreen(
-      body: const TabBarView(children: [
-        ReelsScreen(following: true),
-        ReelsScreen(),
-      ]),
-      tabLength: 2,
+    AppLayoutTheme(
+      body: const ReelsScreen(),
       bodyPadding: EdgeInsets.zero,
-      header: const Padding(
-        padding: EdgeInsets.all(10),
-        child: TabBar(
-          tabs: <Tab>[
-            Tab(text: 'Following'),
-            Tab(text: 'Explore'),
-          ],
-        ),
-      ),
+      bodyColor: Colors.transparent,
+      borderRadius: BorderRadius.zero,
+      appMargin: EdgeInsets.zero,
+      safeWrap: false,
     ),
-    AppScreen(
+    AppLayoutTheme(
       body: const ChatListScreen(),
       bodyPadding: const EdgeInsets.fromLTRB(20, 20, 20, 3),
     ),
@@ -51,36 +41,31 @@ class _AppState extends State<App> {
     Ph.chat_circle_dots,
     Octicon.settings_24,
   ];
-  int selectedIndex = 0;
+  int selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: bodyWidgets[selectedIndex].tabLength,
-      child: AppLayout(
-        header: bodyWidgets[selectedIndex].header,
-        body: bodyWidgets[selectedIndex].body,
-        footer: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: navIcons
-                .map(
-                  (e) => InkWell(
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = navIcons.indexOf(e);
-                      });
-                    },
-                    child: _NavIcon(
-                      e,
-                      selected: selectedIndex == navIcons.indexOf(e),
-                    ),
+    return AppLayout(
+      theme: bodyWidgets[selectedIndex],
+      footer: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: navIcons
+              .map(
+                (e) => InkWell(
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = navIcons.indexOf(e);
+                    });
+                  },
+                  child: _NavIcon(
+                    e,
+                    selected: selectedIndex == navIcons.indexOf(e),
                   ),
-                )
-                .toList(),
-          ),
+                ),
+              )
+              .toList(),
         ),
-        bodyPadding: bodyWidgets[selectedIndex].bodyPadding,
       ),
     );
   }

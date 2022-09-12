@@ -54,9 +54,7 @@ class _ReelWidgetState extends State<ReelWidget> {
       child: Stack(
         children: [
           videoController.value.isInitialized
-              ? ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: CachedVideoPlayer(videoController))
+              ? CachedVideoPlayer(videoController)
               : Container(),
           Positioned.fill(
             bottom: 0,
@@ -68,14 +66,10 @@ class _ReelWidgetState extends State<ReelWidget> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                    ),
                     gradient: LinearGradient(
                       colors: [
                         Color.fromARGB(0, 0, 0, 0),
-                        Color.fromARGB(255, 0, 0, 0),
+                        Color.fromARGB(209, 0, 0, 0),
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -135,6 +129,29 @@ class _ReelWidgetState extends State<ReelWidget> {
                             icon: Fluent.share_24_regular,
                             caption: "Save",
                           ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            margin: const EdgeInsets.only(top: 16),
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color.fromARGB(255, 143, 214, 252),
+                                  Color.fromARGB(255, 100, 221, 254),
+                                  Color.fromARGB(255, 34, 152, 255),
+                                  Color.fromARGB(255, 19, 129, 255),
+                                ],
+                                stops: [0.1, 0.3, 0.9, 1.0],
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Iconify(
+                              Ic.baseline_add,
+                              color: const Color.fromARGB(255, 225, 238, 244),
+                              size: 26,
+                            ),
+                          )
                         ],
                       )
                     ],
