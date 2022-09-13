@@ -23,7 +23,6 @@ class _ReelWidgetState extends State<ReelWidget> {
 
   @override
   void initState() {
-    print("Page Created");
     super.initState();
     videoController = CachedVideoPlayerController.network(widget.reel.videoUrl)
       ..initialize().then((_) {
@@ -51,7 +50,7 @@ class _ReelWidgetState extends State<ReelWidget> {
       onVisibilityLost: () {
         videoController.pause();
       },
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Stack(
           children: [
@@ -65,8 +64,7 @@ class _ReelWidgetState extends State<ReelWidget> {
                 child: IntrinsicHeight(
                   child: Container(
                     alignment: Alignment.bottomCenter,
-                    padding:
-                        const EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 15),
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
@@ -124,11 +122,11 @@ class _ReelWidgetState extends State<ReelWidget> {
                               icon: Uil.comment_dots,
                               caption: numberFormat(widget.reel.likes),
                             ),
-                            ReelAction(
+                            const ReelAction(
                               icon: Ic.twotone_bookmark_border,
                               caption: "Save",
                             ),
-                            ReelAction(
+                            const ReelAction(
                               icon: Fluent.share_24_regular,
                               caption: "Save",
                             ),
@@ -151,7 +149,7 @@ class _ReelWidgetState extends State<ReelWidget> {
                               ),
                               child: const Iconify(
                                 Ic.baseline_add,
-                                color: const Color.fromARGB(255, 225, 238, 244),
+                                color: Color.fromARGB(255, 225, 238, 244),
                                 size: 26,
                               ),
                             )
@@ -164,9 +162,9 @@ class _ReelWidgetState extends State<ReelWidget> {
               ),
             ),
             if (videoController.value.isBuffering)
-              Text(
+              const Text(
                 "Loading...",
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.red,
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -180,12 +178,13 @@ class _ReelWidgetState extends State<ReelWidget> {
 }
 
 class ReelAction extends StatelessWidget {
-  ReelAction({Key? key, required this.icon, required this.caption, this.onTap})
+  const ReelAction(
+      {Key? key, required this.icon, required this.caption, this.onTap})
       : super(key: key);
 
   final String icon;
   final String caption;
-  void Function()? onTap;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {

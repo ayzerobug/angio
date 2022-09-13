@@ -7,7 +7,7 @@ import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/ph.dart';
 
-import '../Models/feed.dart';
+import '../models/feed.dart';
 import '../methods/formatter.dart';
 import 'feed_action.dart';
 

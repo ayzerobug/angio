@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/app_screns.dart';
+import '../models/app_layout_theme.dart';
 
 class AppLayout extends StatelessWidget {
   const AppLayout(
@@ -14,25 +14,24 @@ class AppLayout extends StatelessWidget {
     final Widget child = Stack(
       children: [
         Padding(
-      padding: theme.appMargin,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          if (theme.header != null) theme.header!,
-          Expanded(
-            child: Container(
-              padding: theme.bodyPadding,
-              decoration: BoxDecoration(
-                color: theme.bodyColor,
-                borderRadius: theme.borderRadius,
+          padding: theme.appMargin,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (theme.header != null) theme.header!,
+              Expanded(
+                child: Container(
+                  padding: theme.bodyPadding,
+                  decoration: BoxDecoration(
+                    color: theme.bodyColor,
+                    borderRadius: theme.borderRadius,
+                  ),
+                  child: theme.body,
+                ),
               ),
-              child: theme.body,
-            ),
-          ),
               if (!theme.footerOnBody) theme.footer ?? footer
-
-        ],
-      ),
+            ],
+          ),
         ),
         if (theme.footerOnBody)
           Align(

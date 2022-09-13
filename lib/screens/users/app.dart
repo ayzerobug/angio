@@ -6,7 +6,7 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/octicon.dart';
 import 'package:iconify_flutter/icons/ph.dart';
-import '../../utils/models/app_screns.dart';
+import '../../utils/models/app_layout_theme.dart';
 import 'chat_list.dart';
 
 class App extends StatefulWidget {
