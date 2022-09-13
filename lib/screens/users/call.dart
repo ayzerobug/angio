@@ -8,7 +8,7 @@ import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:iconify_flutter/icons/mdi.dart';
 
-import '../../utils/Models/app_screns.dart';
+import '../../utils/models/app_screns.dart';
 
 class CallScreen extends StatefulWidget {
   const CallScreen({Key? key}) : super(key: key);

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iconify_flutter/icons/wi.dart';
 
-import '../Models/app_screns.dart';
+import '../models/app_screns.dart';
 
 class AppLayout extends StatelessWidget {
   const AppLayout(
@@ -12,7 +11,9 @@ class AppLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget child = Padding(
+    final Widget child = Stack(
+      children: [
+        Padding(
       padding: theme.appMargin,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -28,9 +29,15 @@ class AppLayout extends StatelessWidget {
               child: theme.body,
             ),
           ),
-          theme.footer ?? footer
+              if (!theme.footerOnBody) theme.footer ?? footer
+
         ],
       ),
+        ),
+        if (theme.footerOnBody)
+          Align(
+              alignment: Alignment.bottomCenter, child: theme.footer ?? footer)
+      ],
     );
     return Scaffold(
       body: theme.safeWrap ? SafeArea(child: child) : child,

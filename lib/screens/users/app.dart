@@ -1,12 +1,12 @@
 import 'package:angio/screens/users/feeds.dart';
 import 'package:angio/screens/users/reels.dart';
-import 'package:angio/utils/Models/app_screns.dart';
 import 'package:angio/utils/widgets/app_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/fluent.dart';
 import 'package:iconify_flutter/icons/octicon.dart';
 import 'package:iconify_flutter/icons/ph.dart';
+import '../../utils/models/app_screns.dart';
 import 'chat_list.dart';
 
 class App extends StatefulWidget {
@@ -79,17 +79,12 @@ class _NavIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: selected ? const EdgeInsets.all(10) : EdgeInsets.zero,
-      decoration: BoxDecoration(
-        color: selected ? const Color(0xff1f56cb) : Colors.transparent,
-        shape: BoxShape.circle,
-      ),
-      child: Iconify(
-        icon,
-        color: const Color.fromARGB(255, 225, 238, 244),
-        size: 30,
-      ),
+    return Iconify(
+      icon,
+      color: selected
+          ? const Color.fromARGB(255, 225, 238, 244)
+          : const Color.fromARGB(255, 95, 94, 94),
+      size: 30,
     );
   }
 }

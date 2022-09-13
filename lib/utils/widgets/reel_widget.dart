@@ -51,125 +51,129 @@ class _ReelWidgetState extends State<ReelWidget> {
       onVisibilityLost: () {
         videoController.pause();
       },
-      child: Stack(
-        children: [
-          videoController.value.isInitialized
-              ? CachedVideoPlayer(videoController)
-              : Container(),
-          Positioned.fill(
-            bottom: 0,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: IntrinsicHeight(
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(0, 0, 0, 0),
-                        Color.fromARGB(209, 0, 0, 0),
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        child: Stack(
+          children: [
+            videoController.value.isInitialized
+                ? Positioned.fill(child: CachedVideoPlayer(videoController))
+                : Container(),
+            Positioned.fill(
+              bottom: 0,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: IntrinsicHeight(
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    padding:
+                        const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 15),
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(0, 0, 0, 0),
+                          Color.fromARGB(255, 0, 0, 0),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
                     ),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Expanded(
-                        child: IntrinsicHeight(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                widget.reel.author.name,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              if (widget.reel.caption != null)
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: IntrinsicHeight(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
                                 Text(
-                                  widget.reel.caption!,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
+                                  widget.reel.author.name,
                                   style: const TextStyle(
-                                    color: Color.fromARGB(255, 223, 223, 223),
-                                    fontSize: 13,
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                            ],
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                if (widget.reel.caption != null)
+                                  Text(
+                                    widget.reel.caption!,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      color: Color.fromARGB(255, 223, 223, 223),
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 50,
-                      ),
-                      Column(
-                        children: [
-                          ReelAction(
-                            icon: Ri.heart_3_line,
-                            caption: numberFormat(widget.reel.likes),
-                          ),
-                          ReelAction(
-                            icon: Uil.comment_dots,
-                            caption: numberFormat(widget.reel.likes),
-                          ),
-                          ReelAction(
-                            icon: Ic.twotone_bookmark_border,
-                            caption: "Save",
-                          ),
-                          ReelAction(
-                            icon: Fluent.share_24_regular,
-                            caption: "Save",
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            margin: const EdgeInsets.only(top: 16),
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Color.fromARGB(255, 143, 214, 252),
-                                  Color.fromARGB(255, 100, 221, 254),
-                                  Color.fromARGB(255, 34, 152, 255),
-                                  Color.fromARGB(255, 19, 129, 255),
-                                ],
-                                stops: [0.1, 0.3, 0.9, 1.0],
+                        const SizedBox(
+                          width: 50,
+                        ),
+                        Column(
+                          children: [
+                            ReelAction(
+                              icon: Ri.heart_3_line,
+                              caption: numberFormat(widget.reel.likes),
+                            ),
+                            ReelAction(
+                              icon: Uil.comment_dots,
+                              caption: numberFormat(widget.reel.likes),
+                            ),
+                            ReelAction(
+                              icon: Ic.twotone_bookmark_border,
+                              caption: "Save",
+                            ),
+                            ReelAction(
+                              icon: Fluent.share_24_regular,
+                              caption: "Save",
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              margin: const EdgeInsets.only(top: 16),
+                              decoration: const BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    Color.fromARGB(255, 143, 214, 252),
+                                    Color.fromARGB(255, 100, 221, 254),
+                                    Color.fromARGB(255, 34, 152, 255),
+                                    Color.fromARGB(255, 19, 129, 255),
+                                  ],
+                                  stops: [0.1, 0.3, 0.9, 1.0],
+                                ),
+                                shape: BoxShape.circle,
                               ),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Iconify(
-                              Ic.baseline_add,
-                              color: const Color.fromARGB(255, 225, 238, 244),
-                              size: 26,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                              child: const Iconify(
+                                Ic.baseline_add,
+                                color: const Color.fromARGB(255, 225, 238, 244),
+                                size: 26,
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          if (videoController.value.isBuffering)
-            Text(
-              "Loading...",
-              style: const TextStyle(
-                color: Colors.red,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+            if (videoController.value.isBuffering)
+              Text(
+                "Loading...",
+                style: const TextStyle(
+                  color: Colors.red,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

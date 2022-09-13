@@ -9,6 +9,7 @@ class AppLayoutTheme {
   final BorderRadiusGeometry borderRadius;
   final Color bodyColor;
   final bool safeWrap;
+  final bool footerOnBody;
 
   AppLayoutTheme({
     this.header,
@@ -19,5 +20,6 @@ class AppLayoutTheme {
     this.appMargin = const EdgeInsets.all(5),
     this.bodyPadding = EdgeInsets.zero,
     this.safeWrap = true,
+    this.footerOnBody = false,
   });
 }
