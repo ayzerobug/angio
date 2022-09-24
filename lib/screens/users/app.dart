@@ -22,14 +22,14 @@ class _AppState extends State<App> {
       body: const FeedScreen(),
       bodyPadding: const EdgeInsets.fromLTRB(10, 20, 10, 3),
     ),
-    AppLayoutTheme(
-      body: const ReelsScreen(),
-      bodyPadding: EdgeInsets.zero,
-      bodyColor: Colors.transparent,
-      borderRadius: BorderRadius.zero,
-      appMargin: EdgeInsets.zero,
-      safeWrap: false,
-    ),
+    // AppLayoutTheme(
+    //   body: const ReelsScreen(),
+    //   bodyPadding: EdgeInsets.zero,
+    //   bodyColor: Colors.transparent,
+    //   borderRadius: BorderRadius.zero,
+    //   appMargin: EdgeInsets.zero,
+    //   safeWrap: false,
+    // ),
     AppLayoutTheme(
       body: const ChatListScreen(),
       bodyPadding: const EdgeInsets.fromLTRB(20, 20, 20, 3),
@@ -37,11 +37,11 @@ class _AppState extends State<App> {
   ];
   List<String> navIcons = const [
     Fluent.home_28_filled,
-    Fluent.chat_video_20_regular,
+    // Fluent.chat_video_20_regular,
     Ph.chat_circle_dots,
     Octicon.settings_24,
   ];
-  int selectedIndex = 1;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return AppLayout(

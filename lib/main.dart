@@ -1,3 +1,5 @@
+import 'package:angio/screens/auth/login.dart';
+import 'package:angio/utils/models/themes.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/users/app.dart';
@@ -16,11 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Angio',
-      theme: ThemeData(
-        scaffoldBackgroundColor: scaffoldBackgroundColor,
-        primarySwatch: Colors.blue,
-      ),
-      home: const App(),
+      theme: lightTheme,
+      darkTheme: darkTheme, // standard dark theme
+      themeMode: ThemeMode.system,
+
+      home: const LoginScreen(),
     );
   }
 }
